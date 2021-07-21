@@ -1,0 +1,7 @@
+Header header
+float64 current_loop_lenght
+float64 requested_loop_length
+bool loop_length_at_setpoint
+float64 current_force
+float64 rquested_force
+bool force_at_setpoint
