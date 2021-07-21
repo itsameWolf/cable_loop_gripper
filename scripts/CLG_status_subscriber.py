@@ -7,10 +7,11 @@ def callback(data):
 
 def listener():
     rospy.init_node('custom_listener', anonymous=True)
-    rospy.Subscriber("custom_chatter", Person, callback)
+    rospy.Subscriber("custom_chatter", CLG_status, callback)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
 
 if __name__ == '__main__':
     listener()
+    rospy.spin()

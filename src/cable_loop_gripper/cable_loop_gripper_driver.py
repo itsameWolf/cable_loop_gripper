@@ -6,7 +6,7 @@ from serial.serialutil import Timeout
 from .cable_loop_gripper_struct import CLG_status_struct as status
 
 class CableLoopGripper:
-    def __init__(self, comport='/dev/serial0',baud=57600,camera_id=0):
+    def __init__(self, comport='/dev/serial0',baud=115200,camera_id=0):
 
         self.CLG_status = status()
         
@@ -30,27 +30,31 @@ class CableLoopGripper:
         if self.serial_interface.in_waiting > 0:
             line = self.serial_interface.readline().decode('ascii').rstrip()
             values = re.findall(r'\d+(?:\.\d+)?',line)
-            self.CLG_status.current_loop_length = values[0]
-            self.CLG_status.requested_loop_length = values[1]
-            self.CLG_status.current_force = values[2]
-            self.CLG_status.requested_force = values[3]
-            self.CLG_status.at_setpoint = values[5]
-    
-    def setControlStatus (self, control_status): 
+            print(line)
+            print(values)
+            if len(values) == 7:
+                self.CLG_status.current_loop_lenght = values[0]
+                self.CLG_status.requested_loop_length = values[1]
+                self.CLG_status.loop_length_at_setpoint = values[5]
+                self.CLG_status.current_force = values[2]
+                self.CLG_status.requested_force = values[3]
+                self.CLG_status.force_at_setpoint = values[6]
+        
+    def setControlMode (self, control_status): 
         msg = "S"+str(control_status)+"\n"
-        self.serial_interface.write(msg)
+        self.serial_interface.write(msg.encode())
 
     def setLoopLength (self, length):
         msg = "P"+str(length)+"\n"
-        self.serial_interface.write(msg)
+        self.serial_interface.write(msg.encode())
 
     def requestLoopLength (self, length):
         msg = "P"+str(length)+"\n"
-        self.serial_interface.write(msg)
+        self.serial_interface.write(msg.encode())
 
     def requestForce (self, force):
         msg = "P"+str(force)+"\n"
-        self.serial_interface.write(msg)
+        self.serial_interface.write(msg.encode())
 
     def detectCable(frame, color_channel=2, blur_kernel=(5,5), canny_param_1=190,canny_param_2=30):
         blur = cv2.blur(frame[color_channel],blur_kernel)
