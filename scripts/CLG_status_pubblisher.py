@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 import rospy
-from CLG_status.msg import CLG_status
+from cable_loop_gripper.msg import CLGstatus
 
 def talker():
-    pub = rospy.Publisher('chatter', CLG_status)
+    pub = rospy.Publisher('chatter', CLGstatus)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(10) # 10hz
     while not rospy.is_shutdown():

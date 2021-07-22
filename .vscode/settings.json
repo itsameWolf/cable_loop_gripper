@@ -2,9 +2,11 @@
     "python.autoComplete.extraPaths": [
         "/home/pi/ros_catkin_ws/devel_isolated/roswtf/lib/python3/dist-packages",
         "/opt/ros/noetic/lib/python3/dist-packages"
+        "/home/pi/ros_catkin_ws/src/cable_loop_gripper/src"
     ],
     "python.analysis.extraPaths": [
         "/home/pi/ros_catkin_ws/devel_isolated/roswtf/lib/python3/dist-packages",
         "/opt/ros/noetic/lib/python3/dist-packages"
+        "/home/pi/ros_catkin_ws/src/cable_loop_gripper/src"
     ]
 }
