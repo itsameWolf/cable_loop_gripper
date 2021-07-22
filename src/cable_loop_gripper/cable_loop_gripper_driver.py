@@ -36,7 +36,9 @@ class CableLoopGripperDriver:
         forceCommand = data.requested_force
         controlCommand = data.control_mode
 
-        print(lengthcommand)
+        if controlCommand != self._last_control_command:
+            self.gripper.setControlMode(controlCommand)
+            self._last_control_command = controlCommand
 
         if lengthcommand != self._last_length_command:
             self.gripper.requestLoopLength(lengthcommand)
@@ -45,10 +47,6 @@ class CableLoopGripperDriver:
         if forceCommand != self._last_force_command:
             self.gripper.requestForce(forceCommand)
             self._last_force_command = forceCommand
-
-        if controlCommand != self._last_control_command:
-            self.gripper.setControlMode(controlCommand)
-            self._last_control_command = controlCommand
 
     def updateDriver(self):
         status = self.gripper.getCLGstatus()
