@@ -4,26 +4,6 @@ import rospy
 from cable_loop_gripper.cable_loop_gripper_driver import CableLoopGripperDriver as CLGdriver
 from cable_loop_gripper.msg import CLGstatus, CLGcommand
 
-'''
-def CLG_command_handler():
-    lengthcommand = CLGcommand.requested_loop_length
-    forceCommand = CLGcommand.requested_force
-    controlCommand = CLGcommand.control_mode
-
-    if lengthcommand != grippper.CLG_status.requested_force:
-        grippper.requestLoopLength(lengthcommand)
-        grippper.CLG_status.requested_loop_length = lengthcommand
-
-    if forceCommand != grippper.CLG_status.requested_force:
-        grippper.requestForce(forceCommand)
-        grippper.CLG_status.requested_force = forceCommand
-
-    if controlCommand != grippper.CLG_status.control_mode:
-        grippper.setControlMode(controlCommand)
-        grippper.CLG_status.control_mode = controlCommand
-'''
-
-
 def CLG_control():
     gripper = CLGdriver('/dev/serial0',115200)
     msg_status = CLGstatus

@@ -12,8 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
-  python3-serial
-  python3-cv2
+  ##python3-serial
+  ##python3-cv2
 )
 
 ## System dependencies are found with CMake's conventions

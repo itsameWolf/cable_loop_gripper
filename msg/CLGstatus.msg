@@ -1,5 +1,5 @@
 Header header
-float32 current_loop_lenght
+float32 current_loop_length
 float32 requested_loop_length
 bool loop_length_at_setpoint
 float32 current_force
