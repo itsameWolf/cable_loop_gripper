@@ -35,6 +35,7 @@ class CableLoopGripperDriver:
         lengthcommand = data.requested_loop_length
         forceCommand = data.requested_force
         controlCommand = data.control_mode
+        rospy.loginfo(data)
 
         if controlCommand != self._last_control_command:
             self.gripper.setControlMode(controlCommand)
@@ -52,5 +53,5 @@ class CableLoopGripperDriver:
         status = self.gripper.getCLGstatus()
         cs = CLGstatus
         cs = self.pubblish_gripper_status(status)
-        rospy.loginfo(cs)
+        #rospy.loginfo(cs)
         self._status_publisher.publish(cs)

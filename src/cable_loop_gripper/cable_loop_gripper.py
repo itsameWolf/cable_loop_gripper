@@ -17,13 +17,26 @@ class CableLoopGripper:
         self.current_status = self.getCLGstatus()
 
 
+        self._last_line = "0 - 0 - 0 - 0 - 0 - 0 - 0\n"
+
+
     def getCLGstatus(self):
         values = [0]*7
 
         if self.serial_interface.in_waiting > 0:
-            line = self.serial_interface.readline().decode('ascii').rstrip()
-            values = re.findall(r'\d+(?:\.\d+)?',line)
+            try:
+                line = self.serial_interface.readline().decode('ascii').rstrip()
 
+            except UnicodeDecodeError:
+                line =  self._last_line
+            
+            values = re.findall(r'\d+(?:\.\d+)?',line)
+            if len(values) < 7:
+                values = re.findall(r'\d+(?:\.\d+)?',self._last_line)
+            else:   
+                self._last_line = line 
+            
+        
         struct = status(float(values[0]),
                         float(values[1]),
                         bool(values[5]),
@@ -35,7 +48,7 @@ class CableLoopGripper:
             
 
     def setControlMode (self, control_status): 
-        msg = "S"+str(control_status)+"\n"
+        msg = "S"+str(int(control_status))+"\n"
         self.serial_interface.write(msg.encode())
 
     def setLoopLength (self, length):
@@ -47,5 +60,5 @@ class CableLoopGripper:
         self.serial_interface.write(msg.encode())
 
     def requestForce (self, force):
-        msg = "P"+str(force)+"\n"
+        msg = "F"+str(force)+"\n"
         self.serial_interface.write(msg.encode())
