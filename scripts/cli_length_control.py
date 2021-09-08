@@ -26,7 +26,7 @@ def cli_length_control():
                 
                 msg.requested_loop_length = value
                 msg.requested_force = 0
-                msg.control_mode = False
+                msg.control_mode = True
 
                 pub.publish(msg)
             except ValueError:
