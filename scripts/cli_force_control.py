@@ -14,7 +14,7 @@ def cli_force_control():
 
         msg = CLGcommand()
 
-        user_in = input('input target force: ')
+        user_in = input('input loop target lenght: ')
 
         if (user_in == "exit"):
             

@@ -1,6 +1,0 @@
-<<?xml version="1.0"?>
-<launch>
-    <<node pkg="cable_loop_gripper" type="driver" name="executable">
-        
-    </node>
-</launch>
