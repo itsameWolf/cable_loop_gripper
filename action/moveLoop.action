@@ -1,8 +1,0 @@
-#goal
-float32 loop_diameter
----
-#result
-bool reached_setpoint
----
-#feedback
-float32 current_diameter
