@@ -18,13 +18,12 @@ def calibrate_loop(n = 20):
     sum_values = 0.0
     sum_values = sum(values)
     loop_rad = sum_values/n
-    print(loop_rad)
+    rospy.loginfo(loop_rad)
     offset_proxy(loop_rad)
 
 n_iter = int(sys.argv[1]) 
 
 if __name__ == "__main__":
-    
     rospy.init_node('CLG_calibration', anonymous=True)
-    print("start loop calibration")
+    rospy.loginfo("start loop calibration")
     calibrate_loop(n_iter)
