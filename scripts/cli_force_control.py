@@ -10,11 +10,13 @@ def cli_force_control():
 
     kill = False
 
+    print("input the desired gripping strength or press q to exit")
+
     while not rospy.is_shutdown() and not kill:
 
         msg = CLGcommand()
 
-        user_in = input('input loop target lenght: ')
+        user_in = input('input target gripping force: ')
 
         if (user_in == "exit"):
             
@@ -24,7 +26,7 @@ def cli_force_control():
             try:
                 value = float(user_in)
                 
-                msg.requested_loop_length = 0
+                msg.requested_loop_radius= 0
                 msg.requested_force = value
                 msg.control_mode = False
 

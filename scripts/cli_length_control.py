@@ -5,18 +5,20 @@ from cable_loop_gripper.msg import CLGcommand
 
 def cli_length_control():
 
-    rospy.init_node('length_input')
+    rospy.init_node('eadius_input')
     pub = rospy.Publisher("/CLG_command", CLGcommand, queue_size=10)
 
     kill = False
+
+    print("input the desired cable loop radius or press q to exit")
 
     while not rospy.is_shutdown() and not kill:
 
         msg = CLGcommand()
 
-        user_in = input('input loop target lenght: ')
+        user_in = input('input target loop radius: ')
 
-        if (user_in == "exit"):
+        if (user_in == "q"):
             
             kill = True
 
@@ -24,7 +26,7 @@ def cli_length_control():
             try:
                 value = float(user_in)
                 
-                msg.requested_loop_length = value
+                msg.requested_loop_radius = value
                 msg.requested_force = 0
                 msg.control_mode = True
 
