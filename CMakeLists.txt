@@ -53,14 +53,14 @@ catkin_python_setup()
    FILES
    CLGstatus.msg
    CLGcommand.msg
-   CLGvision.msg
 )
 
 ## Generate services in the 'srv' folder
  add_service_files(
    FILES
-   CLGvisionSRV.srv
-#   Service2.srv
+   CLGvision_vialXYdistance.srv
+   CLGvision_loopRadius.srv
+   CLG_offsetLoopRadius.srv
  )
 
 ## Generate actions in the 'action' folder

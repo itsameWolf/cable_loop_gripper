@@ -1,0 +1,7 @@
+<launch>
+    <group ns="CLG_control_node">
+        <node pkg="cable_loop_gripper"  type="CLG_controller.py" name="CLG_conrol" output="screen"/>
+        <node pkg="cable_loop_gripper" type="CLG_vision_server.py" name="CLG_vision_server"/>
+        <node pkg="cable_loop_gripper" type="CLG_calibrate_loop.py" name="CLG_calibrate_loop" args="20"/>
+    </group>
+</launch>

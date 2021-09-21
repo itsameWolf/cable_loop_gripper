@@ -1,1 +1,7 @@
 .vscode/
+src/cable_loop_gripper/__pycache__/
+src/cable_loop_gripper/__pycache__/cable_loop_gripper_driver.cpython-37.pyc
+src/cable_loop_gripper/__pycache__/cable_loop_gripper_struct.cpython-37.pyc
+src/cable_loop_gripper/__pycache__/cable_loop_gripper_vision_driver.cpython-37.pyc
+src/cable_loop_gripper/__pycache__/cable_loop_gripper_vision.cpython-37.pyc
+src/cable_loop_gripper/__pycache__/cable_loop_gripper.cpython-37.pyc

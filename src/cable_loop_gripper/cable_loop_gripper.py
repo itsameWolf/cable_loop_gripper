@@ -51,14 +51,16 @@ class CableLoopGripper:
         msg = "S"+str(int(control_status))+"\n"
         self.serial_interface.write(msg.encode())
 
-    def setLoopLength (self, length):
-        msg = "P"+str(length)+"\n"
+    def setLoopRadius (self, radius):
+        msg = "O"+str(radius)+"\n"
         self.serial_interface.write(msg.encode())
 
-    def requestLoopLength (self, length):
-        msg = "P"+str(length)+"\n"
+    def requestLoopRadius (self, radius):
+        msg = "P"+str(radius)+"\n"
         self.serial_interface.write(msg.encode())
 
     def requestForce (self, force):
         msg = "F"+str(force)+"\n"
         self.serial_interface.write(msg.encode())
+
+    

@@ -1,4 +1,4 @@
 Header header
-float32 requested_loop_length
+float32 requested_loop_radius
 float32 requested_force
 bool control_mode

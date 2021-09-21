@@ -1,7 +1,7 @@
 Header header
-float32 current_loop_length
-float32 requested_loop_length
-bool loop_length_at_setpoint
+float32 current_loop_radius
+float32 requested_loop_radius
+bool loop_radius_at_setpoint
 float32 current_force
 float32 requested_force
 bool force_at_setpoint
