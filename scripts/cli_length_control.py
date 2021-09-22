@@ -5,7 +5,7 @@ from cable_loop_gripper.msg import CLGcommand
 
 def cli_length_control():
 
-    rospy.init_node('eadius_input')
+    rospy.init_node('radius_input')
     pub = rospy.Publisher("/CLG_command", CLGcommand, queue_size=10)
 
     kill = False

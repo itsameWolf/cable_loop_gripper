@@ -2,7 +2,6 @@ import numpy as np
 import rospy
 from cable_loop_gripper.msg import CLGstatus, CLGcommand
 from cable_loop_gripper.srv import CLG_offsetLoopRadius
-from std_msgs.msg import Float32
 from .cable_loop_gripper import CableLoopGripper as CLG
 from .cable_loop_gripper_struct import CLG_status_struct as statusStruct
 
