@@ -21,9 +21,9 @@ def calibrate_loop(n = 20):
     rospy.loginfo(loop_rad)
     offset_proxy(loop_rad)
 
-n_iter = int(sys.argv[1]) 
 
 if __name__ == "__main__":
+    n_iter = int(sys.argv[1]) 
     rospy.init_node('CLG_calibration', anonymous=True)
     rospy.loginfo("start loop calibration")
     calibrate_loop(n_iter)
