@@ -7,7 +7,7 @@ from cable_loop_gripper.srv import CLGvision_vialXYdistance, CLGvision_loopRadiu
 def visionServer():
     vs = vision()
     rospy.init_node('CLG_vision_server')
-    srv_vial = rospy.Service('CLG_vision_vial_xy_distance',CLGvision_vialXYdistance,vs.vialXYDistance)
+    srv_vial = rospy.Service('CLG_vision_vial_xy_distance',CLGvision_vialXYdistance,vs.vialXYDistanceFromFace)
     srv_loop = rospy.Service('CLG_vision_loop_radius',CLGvision_loopRadius,vs.loopRadius)
 
     while rospy.is_shutdown() is not True:
